@@ -1,0 +1,26 @@
+<div class="d-flex justify-content-center mt-5">
+    <div class="col-3">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="text-center mb-4">
+                <h1 class="h3 mb-3 font-weight-normal">Register as Seller</h1>
+            </div>
+
+            <app-text-input formControlName="sellerName" [label]="'Seller Name'"></app-text-input>
+            <app-text-input formControlName="email" [label]="'Email address'"></app-text-input>
+            <app-text-input formControlName="password" [label]="'Password'" [type]="'password'"></app-text-input>
+
+            <ul class="text-danger list-unstyled" *ngIf="errors">
+                <li *ngFor="let error of errors">
+                    {{error}}
+                </li>
+            </ul>
+
+
+            <button [disabled]="registerForm.invalid" class="btn btn-lg btn-warning btn-block" type="submit">Register as Seller</button>
+            <hr>
+            <p class="mt-3 ">Want to register as customer ?<a class="p-3" routerLink="/account/register" routerLinkActive="active">Sign up as Customer</a></p>
+            
+        </form>
+    </div>
+</div>
+
